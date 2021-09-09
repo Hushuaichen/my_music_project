@@ -1,0 +1,231 @@
+clarFix::after {
+  content: '';
+  display: none;
+  clear: both;
+}
+header {
+  width: 100%;
+  height: 90px;
+  background-color: #ccc;
+  position: sticky;
+  left: 0;
+  top: 0;
+}
+header .head {
+  width: 1300px;
+  margin: 0 auto;
+  position: relative;
+}
+header h1 {
+  float: left;
+  font-size: 35px;
+  font-family: cursive;
+  height: 90px;
+  line-height: 90px;
+  color: #fff;
+  margin-right: 25px;
+}
+header ul {
+  float: left;
+  font-size: 20px;
+}
+header ul li {
+  float: left;
+  margin: 0 15px;
+}
+header ul li a {
+  display: block;
+  height: 90px;
+  line-height: 90px;
+  color: #000;
+  text-decoration: none;
+  padding: 0 20px;
+}
+header ul li a:hover {
+  text-decoration: none;
+}
+header .search {
+  height: 90px;
+  float: left;
+}
+header .search input {
+  width: 180px;
+  height: 28px;
+  margin: 30px 0 0 30px;
+  border-radius: 13px;
+  outline: #ccc;
+  border: 1px solid #ccc;
+  float: left;
+}
+header .search button {
+  width: 60px;
+  height: 30px;
+  margin-top: 30px;
+  background: red;
+  color: #fff;
+  float: left;
+  border-radius: 15px;
+}
+header .login {
+  height: 90px;
+  font-size: 16px;
+  margin-left: 30px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+header .login a {
+  color: black;
+}
+header .login a:hover {
+  text-decoration: none;
+  color: chocolate;
+}
+nav {
+  width: 100%;
+  height: 50px;
+  background: #c20c0c;
+}
+nav .content {
+  width: 1200px;
+  height: 50px;
+  margin: 0 auto;
+}
+nav ul {
+  display: flex;
+  justify-content: space-around;
+}
+nav ul li {
+  font-size: 16px;
+  height: 50px;
+}
+nav ul li a {
+  color: #fff;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+nav ul li a:hover {
+  text-decoration: none;
+  color: pink;
+  background: #9b0909;
+}
+.lunbo {
+  width: 100%;
+  background: #c4bbaa;
+}
+.lunbo .content {
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.center {
+  margin-top: 10px ;
+  width: 100%;
+}
+.center .content {
+  width: 1180px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.center .content .tittle {
+  height: 60px;
+  border-bottom: 3px solid red;
+  line-height: 70px;
+}
+.center .content .tittle .left {
+  float: left;
+  width: 20px;
+  height: 20px;
+  background: red;
+  margin-top: 25PX;
+  border-radius: 10px;
+}
+.center .content .tittle .left .in {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: lemonchiffon;
+  margin: 5px;
+  border-radius: 5px ;
+}
+.center .content .tittle h2 {
+  float: left;
+  margin-left: 15px;
+  font-size: 20px;
+  font-weight: normal;
+}
+.center .content .tittle a {
+  float: left;
+  font-size: 16px;
+  margin-left: 20px;
+  padding: 0 10px;
+}
+.center .content .tittle .final {
+  float: right;
+  margin-left: 10px;
+}
+.center .content .tittle a:hover {
+  text-decoration: none;
+  color: red;
+}
+.center .content .center-ul {
+  width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.center .content .center-ul li {
+  margin-bottom: 10px;
+  width: 260px;
+  height: 320px;
+  background: #ccc;
+  background: url(../img/kobe.jpg) no-repeat center center;
+  background-size: 260px 320px;
+}
+.center .content .center-ul li a {
+  width: 100%;
+  height: 100%;
+}
+.center .content .center-ul li:hover {
+  box-shadow: 10px 10px 10px silver;
+}
+.center .content .tittle1 {
+  height: 60px;
+  border-bottom: 3px solid red;
+  line-height: 70px;
+}
+.center .content .tittle1 .left1 {
+  float: left;
+  width: 20px;
+  height: 20px;
+  background: red;
+  margin-top: 25PX;
+  border-radius: 10px;
+}
+.center .content .tittle1 .left1 .in {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: lemonchiffon;
+  margin: 5px;
+  padding: 0 10px;
+  border-radius: 5px ;
+}
+.center .content .tittle1 h2 {
+  float: left;
+  margin-left: 15px;
+  font-size: 20px;
+  font-weight: normal;
+}
+.center .content .tittle1 .final1 {
+  font-size: 16px;
+  float: right;
+  margin-right: 10px;
+}
+.center .content .tittle1 a:hover {
+  text-decoration: none;
+  color: red;
+}

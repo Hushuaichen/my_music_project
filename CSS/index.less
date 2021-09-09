@@ -1,0 +1,247 @@
+clarFix::after{
+    content: '';
+    display: none;
+    clear: both;
+}
+// 头部
+header{
+    width: 100%;
+    height: 90px;
+    background-color: #ccc;
+    position: sticky;
+    left: 0;
+    top: 0;
+    .head{
+        width: 1300px;
+        margin: 0 auto;
+        position: relative;
+    }
+    h1{
+        float: left;
+        font-size: 35px;
+        font-family: cursive;
+        height: 90px;
+        line-height: 90px;
+        color: #fff;
+        margin-right: 25px;
+    }
+    ul{
+        float: left;
+        font-size: 20px;
+        
+        li{
+            float: left;
+            margin: 0 15px;
+            a{
+                display: block;
+                height: 90px;
+                line-height: 90px;
+                color: #000;
+                text-decoration: none;
+                padding: 0 20px;
+            }
+            a:hover{
+                text-decoration: none;
+            }
+        }
+    }
+    .search{
+        height: 90px;
+        float: left;
+        input{
+            width: 180px;
+            height: 28px;
+            margin: 30px 0 0 30px;
+            border-radius: 13px;
+            outline: #ccc;
+            border: 1px solid #ccc;
+            float:left 
+        }
+        button{
+            width: 60px;
+            height: 30px;
+            margin-top: 30px;
+            background: red;
+            color: #fff;
+            float: left;
+            border-radius: 15px;
+        }
+    }
+    .login{
+        height: 90px;
+        font-size: 16px;
+        margin-left: 30px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        a{
+            color: black;
+        }
+        a:hover{
+            text-decoration:none;
+            color: chocolate;
+        }
+    }
+}
+//导航
+nav{
+    width: 100%;
+    height: 50px;
+    background: #c20c0c;
+    .content{
+        width: 1200px;
+        height: 50px;
+        margin: 0 auto;
+    }
+    ul{
+        display: flex;
+        justify-content: space-around;
+        li{
+            font-size: 16px;
+            height: 50px;
+            a{
+                color: #fff;
+                height: 50px;
+                text-align: center;
+                line-height: 50px;
+                padding: 5px 10px;
+                border-radius: 20px;
+            }
+            a:hover{
+                text-decoration: none;
+                color: pink;
+                background: #9b0909;
+            }
+        }
+    }
+}
+
+//轮播图
+.lunbo{
+    width: 100%;
+    background: #c4bbaa;
+    // background: #ccc;
+    .content{
+        width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+// 内容
+.center{
+    margin-top:10px ;
+    width: 100%;
+    // background: #ccc;
+    .content{
+        width: 1180px;
+        margin: 0 auto;
+        padding: 0 10px;
+        .tittle{
+            height: 60px;
+            border-bottom: 3px solid red;
+            // background: yellow;
+            line-height: 70px;
+            .left{
+                float: left;
+                width: 20px;
+                height: 20px;
+                background: red;
+                margin-top: 25PX;
+                border-radius: 10px;
+                .in{
+                    display: block;
+                    width: 10px;
+                    height: 10px;
+                    background: lemonchiffon;
+                    margin: 5px;
+                    border-radius:5px ;
+                }
+            }
+            h2{
+                float: left;
+                margin-left: 15px;
+                font-size: 20px;
+                font-weight: normal;
+                // line-height: 60px;
+
+            }
+            a{
+                float: left;
+                font-size: 16px;
+                margin-left: 20px;
+                padding: 0 10px;
+                // line-height: 60px;
+            }
+            .final{
+                float: right;
+                margin-left: 10px;
+            }
+            a:hover{
+                text-decoration: none;
+                color: red;
+            }
+        }
+        .center-ul{
+            width: 1200px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            li{
+                margin-bottom: 10px;
+                width: 260px;
+                height: 320px;
+                background: #ccc;
+                background: url(../img/kobe.jpg) no-repeat center center;
+                background-size:260px 320px; 
+                a{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            li:hover{
+                box-shadow: 10px 10px 10px silver;
+            }
+        }
+        .tittle1{
+            height: 60px;
+            border-bottom: 3px solid red;
+            // background: yellow;
+            line-height: 70px;
+            .left1{
+                float: left;
+                width: 20px;
+                height: 20px;
+                background: red;
+                margin-top: 25PX;
+                border-radius: 10px;
+                .in{
+                    display: block;
+                    width: 10px;
+                    height: 10px;
+                    background: lemonchiffon;
+                    margin: 5px;
+                    padding: 0 10px;
+                    border-radius:5px ;
+                }
+                }
+            h2{
+                float: left;
+                margin-left: 15px;
+                font-size: 20px;
+                font-weight: normal;
+                // line-height: 60px;
+
+            }
+            .final1{
+                font-size: 16px;
+                float: right;
+                margin-right: 10px;
+            }
+            a:hover{
+                text-decoration: none;
+                color: red;
+            }
+
+        }
+    }
+}
