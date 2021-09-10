@@ -1,89 +1,79 @@
-clarFix::after{
-    content: '';
-    display: none;
-    clear: both;
-}
-// 头部
-header{
-    width: 100%;
-    height: 90px;
-    background-color: #ccc;
-    position: sticky;
-    left: 0;
-    top: 0;
-    .head{
-        width: 1300px;
-        margin: 0 auto;
-        position: relative;
+<template>
+  <div>
+       <!-- 导航 -->
+    <nav>
+        <div class="content">
+            <ul>
+                <li><a href="##">推荐</a></li>
+                <li><a href="##">排行榜</a></li>
+                <li><a href="##">歌单</a></li>
+                <li><a href="##">主播电台</a></li>
+                <li><a href="##">歌手</a></li>
+                <li><a href="##">新碟上架</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- 轮播图 -->
+    <div class="lunbo">
+        <div class="content">
+            <img src="./img/109951166366522520.jpg" alt="">
+        </div>
+    </div>
+    <!-- 内容 -->
+    <div class="center">
+        <div class="content">
+            <div class="tittle">
+                <span class="left"><a href="" class="in"></a></span>
+                <h2>热门推荐</h2>
+                <a href="##">华语</a>
+                <a href="##">流行</a>
+                <a href="##">摇滚</a>
+                <a href="##">民谣</a>
+                <a href="##">电子</a>
+                <a href="##" class="final">更多 ></a>
+            </div>
+            <ul class="center-ul">
+                <li><a href="##"></a></li>
+                <li><a href="##"></a></li>
+                <li><a href="##"></a></li>
+                <li><a href="##"></a></li>
+                <li><a href="##"></a></li>
+                <li><a href="##"></a></li>
+                <li><a href="##"></a></li>
+                <li><a href="##"></a></li>
+                <li><a href="##"></a></li>
+                <li><a href="##"></a></li>
+            </ul>
+            <div class="tittle1">
+                <span class="left1"><a href="" class="in"></a></span>
+                <h2>新歌上架</h2>
+                <a href="##" class="final1">更多 ></a>
+            </div>
+            <ul class="center-ul">
+                <li><a href="##"></a></li>
+                <li><a href="##"></a></li>
+                <li><a href="##"></a></li>
+                <li><a href="##"></a></li>
+                <li><a href="##"></a></li>
+                <li><a href="##"></a></li>
+                <li><a href="##"></a></li>
+                <li><a href="##"></a></li>
+                <li><a href="##"></a></li>
+                <li><a href="##"></a></li>
+            </ul>
+        </div>
+    </div>
+  </div>
+</template>
+
+<script>
+    export default {
+
     }
-    h1{
-        float: left;
-        font-size: 35px;
-        font-family: cursive;
-        height: 90px;
-        line-height: 90px;
-        color: #fff;
-        margin-right: 25px;
-    }
-    ul{
-        float: left;
-        font-size: 20px;
-        
-        li{
-            float: left;
-            margin: 0 15px;
-            a{
-                display: block;
-                height: 90px;
-                line-height: 90px;
-                color: #000;
-                text-decoration: none;
-                padding: 0 20px;
-            }
-            a:hover{
-                text-decoration: none;
-            }
-        }
-    }
-    .search{
-        height: 90px;
-        float: left;
-        input{
-            width: 180px;
-            height: 28px;
-            margin: 30px 0 0 30px;
-            border-radius: 13px;
-            outline: #ccc;
-            border: 1px solid #ccc;
-            float:left 
-        }
-        button{
-            width: 60px;
-            height: 30px;
-            margin-top: 30px;
-            background: red;
-            color: #fff;
-            float: left;
-            border-radius: 15px;
-        }
-    }
-    .login{
-        height: 90px;
-        font-size: 16px;
-        margin-left: 30px;
-        position: absolute;
-        right: 0;
-        top: 0;
-        a{
-            color: black;
-        }
-        a:hover{
-            text-decoration:none;
-            color: chocolate;
-        }
-    }
-}
-//导航
+</script>
+
+<style lang="less" scoped>
+    //导航
 nav{
     width: 100%;
     height: 50px;
@@ -192,7 +182,7 @@ nav{
                 width: 220px;
                 height: 300px;
                 background: #ccc;
-                background: url(../img/kobe.jpg) no-repeat center center;
+                background: url(./img/kobe.jpg) no-repeat center center;
                 background-size:220px 300px; 
                 a{
                     width: 100%;
@@ -246,38 +236,4 @@ nav{
         }
     }
 }
-
-//footer
-.footer {
-    background-color: #eaeaea;
-
-    .footer-container {
-        width: 1200px;
-        margin: 0 auto;
-        padding: 0 15px;
-        .copyright {
-            padding: 20px;
-
-            .helpLink {
-                text-align: center;
-
-                li {
-                    display: inline;
-
-                    .space {
-                        border-left: 1px solid #666;
-                        width: 1px;
-                        height: 13px;
-                        background: #666;
-                        margin: 8px 10px;
-                    }
-                }
-            }
-
-            p {
-                margin: 10px 0;
-                text-align: center;
-            }
-        }
-    }
-}
+</style>
