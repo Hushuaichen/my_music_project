@@ -3,7 +3,7 @@
         <div class="head clearFix">
             <h1><router-link to="/"><i class="iconfont icon-yinle"></i> MY音乐</router-link></h1>
             <ul>
-                <li><a href="##">发现音乐</a></li>
+                <li><router-link to="/findsong">发现音乐</router-link></li>
                 <li><a href="##">我的音乐</a></li>
                 <li><a href="##">朋友</a></li>
                 <li><a href="##">商城</a></li>
@@ -95,6 +95,7 @@ header{
             }
             a:hover{
                 text-decoration: none;
+                color: red;
             }
         }
     }

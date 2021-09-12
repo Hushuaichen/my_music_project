@@ -7,7 +7,7 @@
             </div>
             <ul>
                 <li v-for="(item,index) in result" :key="item.id">
-                    <router-link :to="`/songdetail/${item.id}/${item.name}`">
+                    <router-link :to="`/peoplesong/${item.id}/${item.name}`">
                         <img :src="item.picUrl" alt="">
                         <h3>{{item.name}}</h3>
                     </router-link>
@@ -25,14 +25,14 @@ export default {
         }
     },
     mounted(){
-        this.findSong()
+        this.getSongger()
     },
     methods:{
-        async findSong(){
+        async getSongger(){
             try {
-                const result =await this.$API.getReqFindSong()
+                const result =await this.$API.getReqSongger()
                 if(result.code===200){
-                    this.result = result.result
+                    this.result = result.artists
                 }
             } catch (error) {
                 this.$message.error(error);

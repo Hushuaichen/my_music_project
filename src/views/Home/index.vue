@@ -4,11 +4,11 @@
     <nav>
         <div class="content">
             <ul>
-                <li><a href="##">推荐</a></li>
+                <li><router-link to="/daysong">推荐</router-link></li>
                 <li><a href="##">排行榜</a></li>
-                <li><a href="##">歌单</a></li>
+                <li><router-link to="/songger">歌手</router-link></li>
                 <li><a href="##">主播电台</a></li>
-                <li><a href="##">歌手</a></li>
+                <li><a href="##">歌单</a></li>
                 <li><a href="##">新碟上架</a></li>
             </ul>
         </div>
@@ -25,41 +25,24 @@
             <div class="tittle">
                 <span class="left"><a href="" class="in"></a></span>
                 <h2>热门推荐</h2>
-                <a href="##">华语</a>
-                <a href="##">流行</a>
-                <a href="##">摇滚</a>
-                <a href="##">民谣</a>
-                <a href="##">电子</a>
-                <a href="##" class="final">更多 ></a>
+                <router-link to="/china">华语</router-link>
+                <router-link to="/popular">欧美</router-link>
+                <router-link to="/yaogun">日本</router-link>
+                <router-link to="/minyao">韩国</router-link>
+                <!-- <a href="##">电子</a> -->
+                <a href="##" class="final" @click.prevent="tip">更多 ></a>
             </div>
-            <ul class="center-ul">
-                <li><a href="##"></a></li>
-                <li><a href="##"></a></li>
-                <li><a href="##"></a></li>
-                <li><a href="##"></a></li>
-                <li><a href="##"></a></li>
-                <li><a href="##"></a></li>
-                <li><a href="##"></a></li>
-                <li><a href="##"></a></li>
-                <li><a href="##"></a></li>
-                <li><a href="##"></a></li>
-            </ul>
+            <router-view></router-view>
             <div class="tittle1">
                 <span class="left1"><a href="" class="in"></a></span>
-                <h2>新歌上架</h2>
-                <a href="##" class="final1">更多 ></a>
+                <h2>最新专辑</h2>
+                <a href="##" class="final1" @click.prevent="tip">更多 ></a>
             </div>
             <ul class="center-ul">
-                <li><a href="##"></a></li>
-                <li><a href="##"></a></li>
-                <li><a href="##"></a></li>
-                <li><a href="##"></a></li>
-                <li><a href="##"></a></li>
-                <li><a href="##"></a></li>
-                <li><a href="##"></a></li>
-                <li><a href="##"></a></li>
-                <li><a href="##"></a></li>
-                <li><a href="##"></a></li>
+                <li v-for="(item,index) in result" :key="item.id" >
+                    <a href="##"><img :src="item.picUrl" alt=""></a>
+                    <h2><a href="##">{{item.name}}</a></h2>
+                </li>
             </ul>
         </div>
     </div>
@@ -68,7 +51,36 @@
 
 <script>
     export default {
+        data(){
+            return{
+                result:'',
+                id:'',
+                name:'推荐'
+            }
+        },
+        mounted(){
+            this.getNewSong()
+        },
+        methods:{
+            async getNewSong(){
+                try {
+                    const result = await this.$API.getReqNewSong()
+                    this.result = result.albums
+                } catch (error) {
+                    this.$message.error(error);
+                }
+            },
+            SongBook(){
 
+            },
+            tip(){
+                 this.$message({
+                        showClose: true,
+                        message: '放过我吧！真的没有了',
+                        type: 'success'
+                    });
+            }
+        }
     }
 </script>
 
@@ -119,9 +131,8 @@ nav{
 }
 // 内容
 .center{
-    margin-top:10px ;
     width: 100%;
-    // background: #ccc;
+    background: #ccc;
     .content{
         width: 1180px;
         margin: 0 auto;
@@ -181,12 +192,25 @@ nav{
                 margin-bottom: 10px;
                 width: 220px;
                 height: 300px;
-                background: #ccc;
-                background: url(./img/kobe.jpg) no-repeat center center;
+                background: #fff;
                 background-size:220px 300px; 
                 a{
                     width: 100%;
                     height: 100%;
+                }
+            }
+            img{
+                width: 200px;
+                height: 200px;
+                margin-left: 10px;
+                margin-top: 10px;
+            }
+            h2{
+                margin: 20px 10px 10px 10px;
+                text-align: center;
+                a:hover{
+                    text-decoration: none;
+                    color: red;
                 }
             }
             li:hover{

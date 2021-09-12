@@ -1,8 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Login from '../views/Login'
-import Register from '../views/Register'
-import Home from '../views/Home'
 Vue.use(VueRouter)
   const originPush=VueRouter.prototype.push
   VueRouter.prototype.push=function(location,onResolved,onRejected){
@@ -25,22 +22,72 @@ Vue.use(VueRouter)
 const routes = [
     {
       path:'/login',
-      component:Login
+      component:()=>import('../views/Login')
     },
     {
       path:'/register',
-      component:Register
+      component:()=>import('../views/Register')
     },
     {
       path:'/home',
-      component:Home
+      component:()=>import('../views/Home'),
+      children:[
+        {
+          path:'/main',
+          component:()=>import('../views/Home/hot/main.vue')
+        },
+        {
+          path:'/china',
+          component:()=>import('../views/Home/hot/china.vue')
+        },
+        {
+          path:'/minyao',
+          component:()=>import('../views/Home/hot/minyao.vue')
+        },
+        {
+          path:'/popular',
+          component:()=>import('../views/Home/hot/popular.vue')
+        },
+        {
+          path:'/yaogun',
+          component:()=>import('../views/Home/hot/yaogun.vue')
+        },
+        {
+          path:'/',
+          redirect:'/main'
+        }
+      ]
     },
     {
       path:'/',
       redirect:'/home'
+    },
+    {
+      path:'/findsong',
+      component:()=>import('../views/FindSong')
+    },
+   {
+      path:'/songdetail/:id/:name?',
+      component:()=>import('../views/SongDetail')
+    },
+    {
+      path:'/song/:id/:name/:url',
+      component:()=>import('../views/Song'),
+      name:'song'
+    },
+    {
+      path:'/peoplesong/:id/:name',
+      component:()=>import('../views/PeopleSong')
+    },
+    {
+      path:'/daysong',
+      component:()=>import('../views/daySong')
+    },
+    {
+      path:'/songger',
+      component:()=>import('../views/Songger')
     }
 ]
-
 const router = new VueRouter({
   routes
 })
