@@ -6,15 +6,15 @@
             <div class="login">
                 <div class="loginform">
                     <ul class="tab clearFix">
-                        <li>
-                            <a href="##" style="border-right: 0;">扫描登录</a>
+                        <li @click="getUrlCode">
+                            <a href="##" style="border-right: 0;" :class="{current:!istrue}" @click.prevent="show(0)">扫描登录</a>
                         </li>
-                        <li>
-                            <a href="##" class="current">账户登录</a>
+                        <li @click="close">
+                            <a href="##" :class="{current:istrue}" @click.prevent="show(1)">账户登录</a>
                         </li>
                     </ul>
                     <div class="content">
-                        <form action="##">
+                        <form action="##" v-if="istrue">
                             <div class="input-text clearFix">
                                 <i></i>
                                 <input type="text" placeholder="手机号" v-model="phone">
@@ -22,7 +22,7 @@
 
                             <div class="input-text clearFix">
                                 <i class="pwd"></i>
-                                <input type="text" placeholder="请输入密码" v-model="password">
+                                <input type="password" placeholder="请输入密码" v-model="password">
                             </div>
 
                             <div class="setting clearFix">
@@ -35,6 +35,9 @@
                             <button class="btn" @click.prevent="login">登&nbsp;&nbsp;录</button>
 
                         </form>
+                        <div class="urlcode" v-else>
+                            <img :src="twoImg" alt="">
+                        </div>
                         <div class="call clearFix">
                             <ul>
                                 <li><img src="images/qq.png" alt=""></li>
@@ -42,7 +45,7 @@
                                 <li><img src="images/ali.png" alt=""></li>
                                 <li><img src="images/weixin.png" alt=""></li>
                             </ul>
-                            <a href="##" class="register">立即注册</a>
+                            <router-link href="##" class="register" to="/register">立即注册</router-link>
                         </div>
                     </div>
                 </div>
@@ -52,11 +55,15 @@
 </template>
 
 <script>
+ import QRCode from 'qrcode'
     export default {
       data(){
         return{
           phone:'',
-          password:''
+          password:'',
+          istrue:true,
+          code:'',
+          twoImg:''
         }
       },
        methods:{
@@ -72,7 +79,52 @@
               } catch (error) {
                 this.$message.error('登录失败');
               }
-        }
+        },
+        async getUrlCode(){
+            try {
+              // let time = Data.now()
+              const result = await this.$API.getReqUrlCode()
+              this.code = result.data.unikey
+              const cImg=await this.$API.getReqCodeImg(this.code)
+              let codeImg = cImg.data.qrurl
+               this.twoImg=await QRCode.toDataURL(codeImg);
+              if(!this.timer){
+                this.timer = setInterval(async ()=>{
+                 const end = await this.$API.examIsLogin(this.code)
+                 if(end.code===803){
+                   this.$router.replace('/home')
+                   clearInterval(this.timer)
+                   this.timer=null
+                 }
+               },2000)
+              }
+            } catch (error) {
+                this.$message.error('二维码生成失败');
+                 timer=null
+                  clearInterval(timer)
+            }
+        },
+        close(){
+          clearInterval(this.timer)
+                   this.timer=null
+        },
+        show(flag){
+          if(flag){
+            this.istrue=true
+          }else{
+            this.istrue=false
+          }
+        },
+         open() {
+          this.$alert('<strong>提示：<br/>二维码登录存在一定的问题，您可使用账号密码进行登录，当然您也可以试一下二维码</strong>', '欢迎体验MY音乐~', {
+          dangerouslyUseHTMLString: true,
+          showClose:false,
+          center:true
+        });
+      }
+      },
+      mounted(){
+        this.open()
       }
 
     }
@@ -85,9 +137,12 @@
 }
 .login-wrap .login {
   width: 1200px;
-  height: 487px;
+  height: 540px;
   margin: 0 auto;
-  background: #c4bbaa;
+  background:url(./img/1.png) no-repeat;
+  background-size: 1200px 600px;
+  // background-size:1200px 487px ;
+  // position: relative;
 }
 .login-wrap .loginform {
   width: 420px;
@@ -191,6 +246,16 @@
   height: 36px;
   margin-top: 25px;
   outline: none;
+}
+.login-wrap .loginform .content .urlcode{
+  width: 150px;
+  height: 150px;
+  background: pink;
+  margin-left: 75px;
+  img{
+   width: 150px;
+   height: 150px;
+  }
 }
 .login-wrap .loginform .content .call {
   margin-top: 30px;

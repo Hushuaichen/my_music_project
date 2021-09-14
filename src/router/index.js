@@ -86,6 +86,26 @@ const routes = [
     {
       path:'/songger',
       component:()=>import('../views/Songger')
+    },
+    {
+      path:'/searchdetail/:keyword',
+      component:()=>import('../views/SearchDeatil')
+    },
+    {
+      path:'/vediodetail',
+      component:()=>import('../views/VedioDetail')
+    },
+    {
+      path:'/vedio/:name/:des/:id',
+      component:()=>import('../views/Vedio')
+    },
+    {
+      path:'/classdetail',
+      component:()=>import('../views/ClassDetail')
+    },
+    {
+      path:'/mysong',
+      component:()=>import('../views/MySong')
     }
 ]
 const router = new VueRouter({

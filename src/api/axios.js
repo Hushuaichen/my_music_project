@@ -2,7 +2,7 @@ import axios from 'axios'
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css'
 const request = axios.create({
-    baseURL:'/api',
+    // baseURL:'/api',
     timeout:20000,
 })
 request.interceptors.request.use(

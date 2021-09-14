@@ -1,0 +1,40 @@
+.box {
+  width: 100%;
+  background: #ccc;
+}
+.box .content {
+  width: 1200px;
+  margin: 0 auto;
+}
+.box .content .tittle {
+  height: 60px;
+  border-bottom: 3px solid red;
+  line-height: 70px;
+}
+.box .content .tittle .left {
+  float: left;
+  width: 20px;
+  height: 20px;
+  background: red;
+  margin-top: 25PX;
+  border-radius: 10px;
+}
+.box .content .tittle .left .in {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: lemonchiffon;
+  margin: 5px;
+  border-radius: 5px ;
+}
+.box .content .tittle h2 {
+  float: left;
+  margin-left: 15px;
+  font-size: 20px;
+  font-weight: normal;
+}
+.box .content video{
+  width: 1200px;
+  height: 600px;
+
+}

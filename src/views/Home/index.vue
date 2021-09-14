@@ -5,18 +5,19 @@
         <div class="content">
             <ul>
                 <li><router-link to="/daysong">推荐</router-link></li>
-                <li><a href="##">排行榜</a></li>
+                <li><router-link to="/classdetail">排行榜</router-link></li>
                 <li><router-link to="/songger">歌手</router-link></li>
-                <li><a href="##">主播电台</a></li>
-                <li><a href="##">歌单</a></li>
-                <li><a href="##">新碟上架</a></li>
+                <li><a href="jacascript:;" @click.prevent="live">主播电台</a></li>
+                <!-- <li><a href="##">歌单</a></li> -->
+                <li><router-link to="/findsong">歌单</router-link></li>
+                <li><router-link to="/vediodetail">视频</router-link></li>
             </ul>
         </div>
     </nav>
     <!-- 轮播图 -->
     <div class="lunbo">
         <div class="content">
-            <img src="./img/109951166366522520.jpg" alt="">
+            <SlideLoop/>
         </div>
     </div>
     <!-- 内容 -->
@@ -39,8 +40,8 @@
                 <a href="##" class="final1" @click.prevent="tip">更多 ></a>
             </div>
             <ul class="center-ul">
-                <li v-for="(item,index) in result" :key="item.id" >
-                    <a href="##"><img :src="item.picUrl" alt=""></a>
+                <li v-for="(item,index) in result" :key="item.id"  @click.prevent="top(item.name,item.id)">
+                    <a href="##" ><img :src="item.picUrl" alt=""></a>
                     <h2><a href="##">{{item.name}}</a></h2>
                 </li>
             </ul>
@@ -55,7 +56,7 @@
             return{
                 result:'',
                 id:'',
-                name:'推荐'
+                name:'推荐',
             }
         },
         mounted(){
@@ -79,7 +80,18 @@
                         message: '放过我吧！真的没有了',
                         type: 'success'
                     });
+            },
+            live(){
+                  this.$message({
+                        showClose: true,
+                        message: '还没有开放哦~~',
+                        type: 'success'
+                    });
+            },
+            top(name,id){
+                    this.$router.push(`/songdetail/${id}/${name}`)
             }
+
         }
     }
 </script>
@@ -127,6 +139,7 @@ nav{
         width: 1200px;
         margin: 0 auto;
         text-align: center;
+        padding: 2px 0;
     }
 }
 // 内容

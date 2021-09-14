@@ -10,6 +10,7 @@
                 <li><router-link :to="{name:'song',params:{id:item.id,name:item.al.name,url:item.al.picUrl}}">{{item.al.name}}</router-link></li>
                 <li><router-link :to="{name:'song',params:{id:item.id,name:item.al.name,url:item.al.picUrl}}">{{item.ar[0].name}}</router-link></li>
             </ul>
+            <Pagination :total="result.length"></Pagination>
         </div>
 </div>
 </template>
@@ -18,7 +19,7 @@
     export default {
         data(){
             return{
-                result:[]
+                result:[],
             }
         },
         mounted(){
@@ -90,6 +91,7 @@
                 // background: yellow;
                 line-height: 45px;
                 font-size: 16px;
+                overflow: hidden;
                 a:hover{
                     color: red;
                     text-decoration: none;

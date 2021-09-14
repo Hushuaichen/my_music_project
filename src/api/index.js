@@ -30,12 +30,44 @@ export const getReqRegister = ()=>{
         method:'get'
     })
 }
+//获取二维码连接
+export const getReqUrlCode = ()=>{
+    return request({
+        url:'/login/qr/key',
+        methods:'get',
+        // params:{timestamp}
+    })
+}
+// 生成二维码
+export const getReqCodeImg = (key)=>{
+    return request({
+        url:'/login/qr/create',
+        methods:'get',
+        params:{key}
+    })
+}
+//检测是否登录
+export const examIsLogin = (key)=>{
+    return request({
+        url:'/login/qr/check',
+        methods:'get',
+        params:{key}
+    })
+}
 //登录
 export const getReqLogin = ({phone,password})=>{
     return request({
         url:'/login/cellphone',
         method:'get',
         params:{phone,password}
+    })
+}
+//获取用户歌单
+export const grtUserSong = (uid)=>{
+    return request({
+        url:'/user/playlist',
+        method:'get',
+        params:{uid}
     })
 }
 //发现音乐接口
@@ -80,7 +112,7 @@ export const  getReqSortSong = (area)=>{
 //获取最新专辑
 export const getReqNewSong = ()=>{
     return request({
-        url:'/album/newest',
+        url:'/album/new',
         method:'get'
     })
 }
@@ -103,6 +135,43 @@ export const getReqDaySong=()=>{
 export const getReqSongger=()=>{
     return request({
         url:'/top/artists',
+        method:'get'
+    })
+}
+//获取搜索结果
+export const getReqSearch=(keywords)=>{
+    return request({
+        url:'/cloudsearch',
+        method:'get',
+        params:{keywords}
+    })
+}
+//获取视频详情
+export const getReqVedioDetail=()=>{
+    return request({
+        url:'/video/timeline/recommend',
+        method:'get'
+    })
+}
+//获取视频
+export const getReqVedio=(id)=>{
+    return request({
+        url:'/video/url',
+        method:'get',
+        params:{id}
+    })
+}
+//获取排行榜
+export const getReqClass = ()=>{
+    return request ({
+        url:'/toplist',
+        method:'get'
+    })
+}
+//退出登录
+export const ReqleaveLogin=()=>{
+    return request({
+        url:'/logout',
         method:'get'
     })
 }

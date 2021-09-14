@@ -33,8 +33,8 @@
                     </li>
                     <li>关于我们</li>
                 </ul>
-                <p>地址：华北水利水电大学</p>
-                <p>郑    州</p>
+                <p>地址：华北水利水电大学(郑州)</p>
+                <p> &nbsp;&nbsp;&nbsp;&nbsp;胡帅晨</p>
             </div>
         </div>
     </div>
@@ -48,8 +48,9 @@ export default {
 
 <style lang="less" scoped>
   .footer {
-        background-color: #eaeaea;
-
+        background-color: #f4f4f4;
+        border: 1px solid #fff;
+        border: 2px solid #fff;
         .footer-container {
             width: 1200px;
             margin: 0 auto;
